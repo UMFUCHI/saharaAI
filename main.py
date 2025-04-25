@@ -8,7 +8,7 @@ import requests
 import time
 from web3 import Web3
 import logging
-from config import CAPSOLVER_API_KEY, min_wait_time, max_wait_time
+from config import CAPSOLVER_API_KEY, random_wallets, min_wait_time, max_wait_time
 import threading
 from threading import Lock
 
