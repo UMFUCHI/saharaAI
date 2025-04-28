@@ -205,8 +205,7 @@ def transaction(private_key, public, account_index):
         if random_wallets == True:
             wallet = Account.create().address
         else:
-            with open('public.txt', 'r') as file:
-                wallet = Web3().eth.account.from_key(random.choice(private_keys)).address
+            wallet = Web3().eth.account.from_key(random.choice(private_keys)).address
         tx = {
             "from": public,
             "to": wallet,
