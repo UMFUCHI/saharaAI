@@ -238,7 +238,7 @@ def bearer(headers_sahara, private_key, public, proxy, account_index, scraper):
                 "address": public,
                 "sig": '0x' + signed_message.signature.hex(),
                 "referralCode": "YMZC0Y",
-                "walletUUID": uuid.uuid4(),
+                "walletUUID": str(uuid.uuid4()),
                 "walletName": "Rabby Wallet",
                 'timestamp': time.time() * 1000
             }
