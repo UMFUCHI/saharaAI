@@ -3,6 +3,7 @@ from eth_account import Account
 from eth_account.messages import encode_defunct
 import string
 import random
+import uuid
 import datetime
 import requests
 import time
@@ -24,7 +25,7 @@ counter, lock = 0, Lock()
 
 class captcha():
     def turnstile(self, account_index):
-        while True:
+        for _ in range(5):
             try:
                 client = requests.Session()
                 CAPSOLVER_API_ENDPOINT = "https://api.capsolver.com/createTask"
@@ -52,7 +53,7 @@ class captcha():
                 continue
 
     def geetest(self, account_index):
-        while True:
+        for _ in range(5):
             try:
                 client = requests.Session()
                 CAPSOLVER_API_ENDPOINT = "https://api.capsolver.com/createTask"
@@ -237,7 +238,7 @@ def bearer(headers_sahara, private_key, public, proxy, account_index, scraper):
                 "address": public,
                 "sig": '0x' + signed_message.signature.hex(),
                 "referralCode": "YMZC0Y",
-                "walletUUID": "b34e7d74-c02c-4b2c-a30a-030555241d29",
+                "walletUUID": uuid.uuid4(),
                 "walletName": "Rabby Wallet",
                 'timestamp': time.time() * 1000
             }
